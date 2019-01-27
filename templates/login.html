@@ -36,36 +36,28 @@
   <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PROGRAMMES</a>
 </div>
 
-
-
 <style>
 body{
-
-
-
-
-
- background-image: url("/static/images/123.jpg");
+ background-image: url("/static/images/456.jpg");
  background-repeat: no-repeat;
  background-position: center;
  background-size: 100%;
  background-attachment: fixed;
- font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
 }
 
 
 
-.signup{
+.login{
   position: relative;
   left: 25%;
   width:51%;
   padding: 0;
   margin: 0;
-  color:white;
+  
 
-
-  text-align: center;
-  font-family: "Times New Roman", Times, serif;
+ 
 }
 
     
@@ -74,21 +66,15 @@ body{
 
 </style>
 	<body>
-
-
-
-
         <br><br><br><br><br><br><br><br><br>
 		<div class="signup">
 		<form method="POST">
-        	<h1>SIGN UP</h1>
-          <input type="text" name="name" placeholder="name"><br>
-          <label for="name"><!-- Insert name --></label><br><br>
+        	<h1>LOG IN</h1>
         	<input type="text" name="username" placeholder="User Name"><br>
-        	<label for="name"><!-- Insert name --></label><br><br>
-        	<input type="password" name="password" placeholder="Password" maxlength="20" minlength="2"><br>
-            <label for="name"><!-- Insert password --></label><br><br>
-        	<input type="submit" value="Sign Up">
+        	<label for="name">Insert your username</label><br><br>
+        	<input type="password" name="password" placeholder="Password" maxlength="8" minlength="3"><br>
+            <label for="name">Insert your password</label><br><br>
+        	<input type="submit" value="Log In">
             <input type="reset" value="Reset"><br><br>
         	<br>
         </form>
