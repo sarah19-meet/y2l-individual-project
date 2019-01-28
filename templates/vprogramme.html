@@ -1,13 +1,51 @@
 <!DOCTYPE html>
-<html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+<html>
+<style>
+body{
+    background-image: url("/static/images/777.jpg");
+    background-repeat: no-repeat;
+    background-size:100%;}
 
-<!-- Navbar -->
-<div class="w3-top">
+#move {
+    margin-left: 3%;
+}
+
+#milah{
+	font-size: 80px;
+}
+
+#polis{
+	font-size: 80px;
+	margin-left: 4%;
+}
+
+/*#milah1{
+	margin-left: 550px;
+	padding-bottom: 300px;
+
+}
+
+#polis1{
+	margin-left: 800px;
+	padding-bottom: 300px;
+
+}*/
+a:hover{
+	color:blue;
+	/*font-weight: 1000;*/
+}
+</style>
+<head>
+	<title>Programmes</title>
+
+
+	<div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
@@ -18,8 +56,8 @@
     <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">PROGRAMMES <i class="fa fa-caret-down"></i></button>     
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="store.html" class="w3-bar-item w3-button">VISIT PROGRAMMES</a>
-        <a href="photos.html" class="w3-bar-item w3-button">ADD PROGRAMME</a>
+        <a href="/vprogramme" class="w3-bar-item w3-button">VIEW PROGRAMMES</a>
+        <a href="/addprogramme" class="w3-bar-item w3-button">ADD PROGRAMME</a>
 
       </div>
     </div>
@@ -32,52 +70,74 @@
   <a href="/signup" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SIGN UP</a>
   <a href="/login" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">LOG IN</a>
   <a href="/logout" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">LOG OUT</a>
-  <a href="/contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
   <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PROGRAMMES</a>
 </div>
 
+</head>
 <style>
-body{
- background-image: url("/static/images/456.jpg");
- background-repeat: no-repeat;
- background-position: center;
- background-size: 100%;
- background-attachment: fixed;
-  text-align: center;
-  font-family: "Times New Roman", Times, serif;
-}
-
-
-
-.login{
-  position: relative;
-  left: 25%;
-  width:51%;
-  padding: 0;
-  margin: 0;
-  
-
- 
-}
-
-    
-
-
+	
 
 </style>
-	<body>
-        <br><br><br><br><br><br><br><br><br>
-		<div class="signup">
-		<form method="POST">
-        	<h1>LOG IN</h1>
-        	<input type="text" name="username" placeholder="User Name"><br>
-        	<label for="name">Insert your username</label><br><br>
-        	<input type="password" name="password" placeholder="Password" maxlength="8" minlength="3"><br>
-            <label for="name">Insert your password</label><br><br>
-        	<input type="submit" value="Log In">
-            <input type="reset" value="Reset"><br><br>
-        	<br>
-        </form>
-    	</div>
-    </body>
+<body>
+<div id="move">
+<br>
+<br>
+<br>
+<div id= "milah">
+MILAH
+</div>
+The Jerusalem Institute for Hebrew
+<br>
+<br>
+13 King David Street
+<br>
+Mailing Address:
+<br>
+P.O. Box 2775
+<br>
+Jerusalem 91027
+<br>
+milah@milah.org
+<br>
+Tel: +972-2-6233164
+<br>
+Fax: +972-2-6249834
+<br>
+<br>
+<a href="http://www.milah.org/"> Visit Website</a>
+<!-- <div id=milah1>
+<img src="/static/images/milah.png"> -->
+<!-- </div> -->
+<br>
+<br>
+<br>
+<div id="polis">
+POLIS
+</div>
+
+THe Jerusalem Institute of languages and humanities
+<br>
+
+<br>
+Address:
+8 HaAyin Het St.
+<br>
+9511208 Jerusalem.
+<br>
+info@polisjerusalem.org
+Tel: +972 (0)74 7011048
+<br>
+Fax: +972(0)74 7021931
+<br>
+<br>
+<a href="http://www.polisjerusalem.org/"> Visit Website</a>
+<!-- <div id=polis1> -->
+<!-- <img src="/static/images/polis.png"> -->
+<!-- </div> -->
+<br>
+<br>
+<br>
+</div>
+</body>
 </html>

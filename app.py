@@ -76,6 +76,16 @@ def logout_route():
   return redirect(url_for('home'))
   print('logged out')
 
+@app.route('/addprogramme')
+def addprogramme():
+    return render_template('addprogramme.html')
+
+@app.route('/vprogramme')
+def vprogramme():
+    return render_template('vprogramme.html')
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
