@@ -118,6 +118,10 @@ def translator_route(language, to_translate):
 
     return render_template("basic.html", translated_text=translated[0], language=translated[1])
 
+@app.route('/email', methods=["POST", "GET"])
+def send_email():
+  return render_template("homepage.html")
+
 if __name__ == '__main__':
     app.run(debug=True)
 

@@ -12,6 +12,30 @@
 body{
 font-family: "Times New Roman", Times, serif;
 }
+#translate-text-area {
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 5%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #20B2AA;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+  font-size:50px;
+}
+#translate-lang{
+  margin-left: 40%;
+  margin-top: 2%;
+  font-size: 22px;
+}
+
+#t1{
+  margin-left: 73%;
+  margin-bottom: 5%;
+  /*width:20px;*/
+}
 </style>
 
 <style>
@@ -66,9 +90,9 @@ font-family: "Times New Roman", Times, serif;
 
 
 <!-- FORM I MADE -->
-<div>
+<!-- <div class= "form"> -->
   <form id="translate-text"> 
-    <textarea name="text" id="translate-text-area"></textarea>
+    <input type="text" name="text" id="translate-text-area" placeholder="Enter Text" >
 
     <div id="translate-lang">
     <input type="radio" name="language" value="english" id="english" checked> English &nbsp;&nbsp;
@@ -78,7 +102,9 @@ font-family: "Times New Roman", Times, serif;
     <br>
 
   </form>
+  <div id="t1">
   <button onclick="runTranslate()">Translate</button>
+</div>
 
 <div id ="translated-content">        
 </div>
@@ -97,7 +123,7 @@ font-family: "Times New Roman", Times, serif;
         <i class="fa fa-envelope" style="width:30px"> </i> Email: Sarah@Mail.com<br>
       </div>
       <div class="w3-col m6">
-        <form action="/action_page.php" target="_blank">
+        <form action="{{url_for('send_email')}}" target="_blank">
           <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
             <div class="w3-half">
               <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
