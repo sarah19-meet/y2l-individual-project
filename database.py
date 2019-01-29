@@ -1,8 +1,8 @@
-from model import Base, User     
+from model import *     
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-engine = create_engine('sqlite:///project.db')
+engine = create_engine('sqlite:///project.db?check_same_thread=False')
 Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
@@ -30,3 +30,24 @@ def query_by_username(username):
 def query_by_password(password):
   users= session.query(User).filter_by(password=password).all()
   return users   
+
+
+def add_programme(name,email, phone_num, address, link):
+    print("Added a programme!")
+    prog = programme(name=name, email=email, phone_num=phone_num,address=address,link=link, )
+    session.add(prog)
+    session.commit()
+
+def get_all_programmes():
+    progs = session.query(programme).all()
+    return progs
+
+def query_by_programme(name):
+  p= session.query(programme).filter_by(name=name).first()
+  return p
+
+# def search_programme(search):
+#   results = session.query(programme).filter(programme.name.contains(search)).all()
+#   return results
+
+# sarah=add_programme("sarah" ,  "s@gmail.com" , 000, "ha","rf")

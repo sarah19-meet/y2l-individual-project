@@ -10,6 +10,7 @@
 body{
     background-image: url("/static/images/777.jpg");
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size:100%;}
 
 #move {
@@ -23,6 +24,11 @@ body{
 #polis{
 	font-size: 80px;
 	margin-left: 4%;
+}
+
+#n{
+  font-size: 80px;
+  margin-left: 3%;
 }
 
 /*#milah1{
@@ -56,8 +62,8 @@ a:hover{
     <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">PROGRAMMES <i class="fa fa-caret-down"></i></button>     
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="/vprogramme" class="w3-bar-item w3-button">VIEW PROGRAMMES</a>
-        <a href="/addprogramme" class="w3-bar-item w3-button">ADD PROGRAMME</a>
+        <a href="{{url_for('vprogramme')}}" class="w3-bar-item w3-button">VIEW PROGRAMMES</a>
+        <a href="{{url_for('addprogramme')}}" class="w3-bar-item w3-button">ADD PROGRAMME</a>
 
       </div>
     </div>
@@ -138,6 +144,24 @@ Fax: +972(0)74 7021931
 <br>
 <br>
 <br>
+
+{%for p in programme%}
+
+<div id="n">
+{{p.name}}
 </div>
+<br>
+
+<br>
+{{p.address}}
+<br>
+{{p.email}}
+<br>
+{{p.phone_num}}
+<br>
+<br>
+{{p.link}}
+{%endfor%}
+
 </body>
 </html>

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, session,request,redirect,url_for
-from database import add_user, get_all_users,query_by_username
+from database import query_by_username,query_by_programme,get_all_programmes,add_programme
 app = Flask(__name__)
 
 app.secret_key="sarah"
@@ -76,13 +76,37 @@ def logout_route():
   return redirect(url_for('home'))
   print('logged out')
 
-@app.route('/addprogramme')
-def addprogramme():
-    return render_template('addprogramme.html')
+# @app.route('/addprogramme')
+# def addprogramme():
+#     return render_template('addprogramme.html')
 
 @app.route('/vprogramme')
 def vprogramme():
-    return render_template('vprogramme.html')
+    return render_template('vprogramme.html',programme=get_all_programmes())
+
+@app.route('/addprogramme', methods=['GET', 'POST'])
+def addprogramme():
+    # print("hi")
+    if request.method == 'GET':
+           return render_template('addprogramme.html')
+    else:
+
+        # print("hi2")
+        name = request.form['name']
+        address = request.form['address']
+        
+        email=request.form['email']
+        # print("hi3")
+        phone_num=request.form['phone_number']
+        link=request.form['link']
+        # msg = Message("Hello" + name,
+        #           sender="websitedonate1@gmail.com",
+        #           recipients=[email])
+        # msg.body = "name: "+str(name) + "\n adress: "+ str(address) + "\nphone: "+str(phone_num) + "\nlink: "+str(link)+"\n thank you for joining us! good luck!" 
+        # mail.send(msg.body)
+        add_programme(name,email, phone_num, address, link)
+        programme=query_by_programme(name)
+        return render_template('vprogramme.html',programme=[programme])
 
 
 
