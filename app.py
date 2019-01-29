@@ -1,5 +1,5 @@
 from flask import Flask, render_template, session,request,redirect,url_for
-from database import query_by_username,query_by_programme,get_all_programmes,add_programme
+from database import query_by_username,query_by_programme,get_all_programmes,add_programme, translate_language
 app = Flask(__name__)
 
 app.secret_key="sarah"
@@ -25,7 +25,7 @@ def signup_route():
   if request.method == 'GET':
     return render_template('signup.html')
   else:
-    print ('Received POST request for sign up!')
+    print('Received POST request for sign up!')
     # nationality = request.form['nationality']
     name = request.form['name']
     username=request.form['username']
@@ -34,7 +34,7 @@ def signup_route():
     g=add_user(name,username, password)
 
     if g!=None:
-      print ('we already have a user with that name')
+      print('we already have a user with that name')
     return redirect(url_for('home'))
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -109,7 +109,14 @@ def addprogramme():
         return render_template('vprogramme.html',programme=[programme])
 
 
+@app.route("/translator_route/<string:language>/<string:to_translate>", methods=["GET"])
+def translator_route(language, to_translate):
 
+    to_translate = " ".join(to_translate.split("_"))
+
+    translated = translate_language(text=to_translate, language_to=language)
+
+    return render_template("basic.html", translated_text=translated[0], language=translated[1])
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,11 +1,14 @@
 from model import *     
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+import googletrans
 
 engine = create_engine('sqlite:///project.db?check_same_thread=False')
 Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
+
+translator = googletrans.Translator()
 
 def add_user(name,username, password):
     print("Added a user!")
@@ -24,7 +27,7 @@ def query_by_name(name):
 
 def query_by_username(username):
   user= session.query(User).filter_by(username=username).first()
-  print 'user: ' + str(user)
+  print('user: ' + str(user))
   return user 
 
 def query_by_password(password):
@@ -45,6 +48,11 @@ def get_all_programmes():
 def query_by_programme(name):
   p= session.query(programme).filter_by(name=name).first()
   return p
+
+
+
+def translate_language(text, language_to="english"):
+  return translator.translate(text, dest=googletrans.LANGCODES[language_to]).text, googletrans.LANGCODES[language_to]
 
 # def search_programme(search):
 #   results = session.query(programme).filter(programme.name.contains(search)).all()

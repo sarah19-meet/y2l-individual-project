@@ -39,7 +39,7 @@ font-family: "Times New Roman", Times, serif;
 
       </div>
     </div>
-    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+    <!-- <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a> -->
   </div>
 </div>
 
@@ -61,6 +61,28 @@ font-family: "Times New Roman", Times, serif;
   <img class="mySlides" src="/static/images/img1.jpg" style="width:100%">
   <img class="mySlides" src="/static/images/img2-1.jpg" style="width:100%">
   <img class="mySlides" src="/static/images/img3-4-1.jpg" style="width:100%">
+</div>
+
+
+
+<!-- FORM I MADE -->
+<div>
+  <form id="translate-text"> 
+    <textarea name="text" id="translate-text-area"></textarea>
+
+    <div id="translate-lang">
+    <input type="radio" name="language" value="english" id="english" checked> English &nbsp;&nbsp;
+    <input type="radio" name="language" value="Hebrew" id="Hebrew"> Hebrew &nbsp; &nbsp;
+    <input type="radio" name="language" value="arabic" id="arabic"> Arabic 
+    </div>
+    <br>
+
+  </form>
+  <button onclick="runTranslate()">Translate</button>
+
+<div id ="translated-content">        
+</div>
+
 </div>
 
 
@@ -104,6 +126,8 @@ font-family: "Times New Roman", Times, serif;
   <a href="https://twitter.com/queenwillrock"><i class="fa fa-twitter w3-hover-opacity"></i></a>
   </footer>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script>
 var myIndex = 0;
 carousel();
@@ -120,5 +144,39 @@ function carousel() {
   setTimeout(carousel, 2000); // Change image every 2 seconds
 }
 </script>
+
+
+
+<script type="text/javascript">
+  function runTranslate() {
+    var text = document.getElementById("translate-text-area");
+    var language;
+    if (document.getElementById("english").checked == true) {
+      language = "english";
+
+
+    }
+    else if (document.getElementById("arabic").checked == true) {
+      language = "arabic";
+
+    }
+    else {
+      language = "Hebrew";
+    }
+    // alert(language);
+    
+
+    // var loader = document.getElementById("translated-content")''
+    var correct_text = text.value.split(" ").join("_");
+    var full_path = "/translator_route/" + language + "/" + correct_text;
+    $("#translated-content").load(full_path);
+
+  }
+
+
+</script>
+
+
+
 </body>
 
