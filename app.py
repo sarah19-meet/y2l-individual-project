@@ -1,5 +1,5 @@
 from flask import Flask, render_template, session,request,redirect,url_for
-from database import query_by_username,query_by_programme,get_all_programmes,add_programme, translate_language
+from database import query_by_username,query_by_programme,get_all_programmes,add_programme, translate_language,add_user
 app = Flask(__name__)
 
 app.secret_key="sarah"
